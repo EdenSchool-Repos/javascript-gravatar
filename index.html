@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Javascript gravatar</title>
+
+    </script>
+    <!-- <script src="binarytransport.js"></script> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style media="screen">
+      img{
+        max-width: 300px;
+        max-height: 300px;
+        border-radius: 2px;
+        padding: 5px;
+      }
+      body{
+        background-color: black;
+        color: white;
+
+      }
+      #main{
+        display: flex;
+        flex-flow: row wrap;
+      }
+      a{
+        text-decoration: none;
+        color: cornflowerblue;
+      }
+      div{
+        margin: 10px;
+      }
+
+      .col-sm-5 {
+        background-color: #34495e;
+      }
+
+      .row {
+          width: 100%;
+          margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <form  name="myForm">
+    <input type="text" name="userid" id="gravatar" value="35641311" />
+    <input type="submit" /><br>
+    </form>
+    <div id="output"></div>
+    <script type="text/javascript">
+    let params = (new URL(document.location)).searchParams;
+
+    document.addEventListener('DOMContentLoaded', _ => {
+      if(params.get('userid')){
+        let APIUserIDGavatar = "https://avatars3.githubusercontent.com/u/" + params.get("userid")
+
+        document.getElementById("output").innerHTML = '<img src="' + APIUserIDGavatar + '"/>';
+
+      };
+    });
+    </script>
+  </body>
+</html>
